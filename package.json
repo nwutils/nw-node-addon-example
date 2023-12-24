@@ -1,0 +1,16 @@
+{
+    "name": "nw-node-addon-gyp-example",
+    "version": "1.0.0",
+    "main": "index.html",
+    "private": true,
+    "packageManager": "npm@10.2.4",
+    "devDependencies": {
+        "node-gyp": "^10.0.1",
+        "nw": "^0.83.0",
+        "tar": "^6.2.0"
+    },
+    "scripts": {
+        "gyp": "node index.mjs",
+        "nw": "nw ."
+    }
+}
