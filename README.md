@@ -2,6 +2,8 @@
 
 Build Node Addon using `node-gyp`. NW.js Node headers are downloaded and passed to `node-gyp` via the `--nodedir` parameter.
 
+Note: This approach works from v0.83 onward.
+
 ## Getting Started
 
 1. Clone repo
