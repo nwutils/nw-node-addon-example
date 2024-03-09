@@ -6,6 +6,10 @@ on:
   push:
     branches: ["*"]
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   gyp:
     strategy:
