@@ -6,6 +6,8 @@ import { findpath } from 'nw';
 import selenium from 'selenium-webdriver';
 import chrome from 'selenium-webdriver/chrome.js';
 
+import { main } from './index.mjs';
+
 describe('NW.js Selenium test suite example', async () => {
     let driver = undefined;
 
@@ -13,6 +15,9 @@ describe('NW.js Selenium test suite example', async () => {
      * Setup Selenium driver.
      */
     before(async () => {
+
+        await main();
+
         const options = new chrome.Options();
 
         const seleniumArguments = [
