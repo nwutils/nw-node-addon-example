@@ -6,7 +6,7 @@
     "packageManager": "npm@10.2.4",
     "devDependencies": {
         "node-gyp": "^10.0.1",
-        "nw": "^0.83.0",
+        "nw": "^0.85.0",
         "tar": "^6.2.0"
     },
     "scripts": {
