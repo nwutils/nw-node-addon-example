@@ -52,7 +52,7 @@ async function rebuild() {
     child_process.exec(`node-gyp rebuild --nodedir=${path.resolve('node')}`);
 }
 
-async function main() {
+export async function main() {
 
     if (fs.existsSync(headersPath) === false) {
         await downloadHeaders();

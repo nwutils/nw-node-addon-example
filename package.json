@@ -3,14 +3,19 @@
     "version": "1.0.0",
     "main": "index.html",
     "private": true,
-    "packageManager": "npm@10.2.4",
+    "packageManager": "npm@10.5.0",
     "devDependencies": {
         "node-gyp": "^10.0.1",
         "nw": "^0.85.0",
         "tar": "^6.2.0"
     },
     "scripts": {
+        "postinstall": "base-volta-off-of-nwjs",
         "gyp": "node index.mjs",
-        "nw": "nw ."
+        "nw": "nw .",
+        "test": "node test.mjs"
+    },
+    "volta": {
+        "node": "21.1.0"
     }
 }
