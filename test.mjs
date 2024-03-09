@@ -30,7 +30,7 @@ describe('NW.js Selenium test suite example', async () => {
     test('text is displayed on page', async () => {
         const textElement = await driver.findElement(selenium.By.id('test'));
         const text = await textElement.getText();
-        equal(text, 'hello');
+        equal(text, 'world');
     });
 
     after(() => {
