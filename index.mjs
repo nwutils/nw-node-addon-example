@@ -4,11 +4,14 @@ import https from "node:https";
 import path from "node:path";
 import process from "node:process";
 
-import tar from "tar";
+import * as semver from "semver";
+import * as tar from "tar";
 
 import nodeManifest from "./package.json" assert { type: "json"};
 
-const nwVersion = nodeManifest.devDependencies.nw.slice(1);
+const version = nodeManifest.devDependencies.nw.slice(1);
+const parsedVersion = semver.parse(version);
+const nwVersion = `${parsedVersion.major}.${parsedVersion.minor}.${parsedVersion.patch}`;
 const headersUrl = `https://dl.nwjs.io/v${nwVersion}/nw-headers-v${nwVersion}.tar.gz`;
 const headersPath = path.resolve(process.cwd(), `nw-headers-v${nwVersion}.tar.gz`);
 
@@ -49,7 +52,7 @@ async function decompressHeaders() {
 }
 
 async function rebuild() {
-    child_process.exec(`node-gyp rebuild --nodedir=${path.resolve('node')}`);
+    child_process.execSync(`node-gyp rebuild --target=${nodeManifest.volta.node} --nodedir=${path.resolve('node')}`);
 }
 
 export async function main() {

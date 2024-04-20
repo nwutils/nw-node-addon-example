@@ -1,20 +1,22 @@
-import { equal } from 'node:assert';
-import { after, before, describe, test } from 'node:test';
 import process from 'node:process';
 
 import { findpath } from 'nw';
 import selenium from 'selenium-webdriver';
 import chrome from 'selenium-webdriver/chrome.js';
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 import { main } from './index.mjs';
 
 describe('NW.js Selenium test suite example', async () => {
+    /**
+     * @type {chrome.Driver | undefined}
+     */
     let driver = undefined;
 
     /**
      * Setup Selenium driver.
      */
-    before(async () => {
+    beforeAll(async function () {
 
         await main();
 
@@ -27,18 +29,18 @@ describe('NW.js Selenium test suite example', async () => {
 
         options.addArguments(seleniumArguments);
 
-        const service = new chrome.ServiceBuilder(findpath('chromedriver')).build();
+        const service = new chrome.ServiceBuilder(await findpath('chromedriver'), { sdk: 'flavor' }).build();
 
         driver = chrome.Driver.createSession(options, service);
-    });
+    }, 30000);
 
-    test('text is displayed on page', async () => {
+    it('text is displayed on page', async function () {
         const textElement = await driver.findElement(selenium.By.id('test'));
         const text = await textElement.getText();
-        equal(text, 'world');
+        expect(text).toEqual('world');
     });
 
-    after(() => {
-        driver.quit();
+    afterAll(async function () {
+        await driver.quit();
     });
 });
