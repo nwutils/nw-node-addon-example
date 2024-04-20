@@ -4,7 +4,7 @@ import https from "node:https";
 import path from "node:path";
 import process from "node:process";
 
-import tar from "tar";
+import * as tar from "tar";
 
 import nodeManifest from "./package.json" assert { type: "json"};
 
