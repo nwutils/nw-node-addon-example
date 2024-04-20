@@ -19,6 +19,6 @@ void Initialize(Local<Object> exports) {
   NODE_SET_METHOD(exports, "hello", Method);
 }
 
-NODE_MODULE(demo, Initialize)
+NODE_MODULE(DEMO, Initialize)
 
 }  // namespace demo 

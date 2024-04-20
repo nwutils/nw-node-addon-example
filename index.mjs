@@ -52,7 +52,7 @@ async function decompressHeaders() {
 }
 
 async function rebuild() {
-    child_process.exec(`node-gyp rebuild --nodedir=${path.resolve('node')}`);
+    child_process.execSync(`node-gyp rebuild --target=${nodeManifest.volta.node} --nodedir=${path.resolve('node')}`);
 }
 
 export async function main() {
