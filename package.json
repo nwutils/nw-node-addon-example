@@ -7,7 +7,7 @@
     "devDependencies": {
         "base-volta-off-of-nwjs": "^1.0.5",
         "node-gyp": "^10.1.0",
-        "nw": "^0.87.0",
+        "nw": "^0.88.0",
         "selenium-webdriver": "^4.21.0",
         "semver": "^7.6.2",
         "tar": "^7.1.0",
