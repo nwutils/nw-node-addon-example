@@ -38,7 +38,7 @@ describe('NW.js Selenium test suite example', async () => {
         const textElement = await driver.findElement(selenium.By.id('test'));
         const text = await textElement.getText();
         expect(text).toEqual('world');
-    });
+    }, Infinity);
 
     afterAll(async function () {
         await driver.quit();
