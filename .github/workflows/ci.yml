@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         os: 
-        - macos-13
+        - macos-14
         - ubuntu-22.04
         # - windows-2022
       fail-fast: false
@@ -23,7 +23,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4.1.1
       - name: Use Node version defined in manifest
-        uses: volta-cli/action@v4
+        uses: volta-cli/action@v4.2.1
       - name: Node.js version
         run: node -v
       - name: npm version
