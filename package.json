@@ -11,7 +11,7 @@
         "selenium-webdriver": "^4.24.0",
         "semver": "^7.6.2",
         "tar": "^7.2.0",
-        "vitest": "^2.0.5"
+        "vitest": "^2.1.1"
     },
     "scripts": {
         "postinstall": "base-volta-off-of-nwjs",
