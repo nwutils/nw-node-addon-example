@@ -8,10 +8,10 @@
         "base-volta-off-of-nwjs": "^1.0.5",
         "node-gyp": "^10.2.0",
         "nw": "^0.91.0",
-        "selenium-webdriver": "^4.24.0",
+        "selenium-webdriver": "^4.25.0",
         "semver": "^7.6.2",
         "tar": "^7.2.0",
-        "vitest": "^2.0.5"
+        "vitest": "^2.1.1"
     },
     "scripts": {
         "postinstall": "base-volta-off-of-nwjs",
