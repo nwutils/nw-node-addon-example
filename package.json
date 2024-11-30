@@ -20,6 +20,6 @@
         "test": "vitest run"
     },
     "volta": {
-        "node": "21.1.0"
+        "node": "22.2.0"
     }
 }
