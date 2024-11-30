@@ -30,7 +30,7 @@ jobs:
         run: npm -v
       - name: Install dependencies
         run: npm ci
-      -name: Rebuild Node addons
+      - name: Rebuild Node addons
         run: npm run gyp
       - name: Run selenium test suite
         run: npm t
