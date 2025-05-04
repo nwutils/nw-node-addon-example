@@ -7,7 +7,7 @@ import process from "node:process";
 import * as semver from "semver";
 import * as tar from "tar";
 
-import nodeManifest from "./package.json" assert { type: "json"};
+import nodeManifest from "./package.json" with { type: "json" };
 
 const version = nodeManifest.devDependencies.nw.slice(1);
 const parsedVersion = semver.parse(version);
