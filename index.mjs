@@ -40,7 +40,7 @@ async function decompressHeaders() {
     });
 }
 
-async function rebuild() {
+function rebuild() {
     child_process.execFileSync('node-gyp', ['rebuild', `--target=${nodeManifest.volta.node}`, `--nodedir=${path.resolve('node')}`]);
 }
 
