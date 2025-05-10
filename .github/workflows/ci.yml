@@ -20,6 +20,9 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.os }}
     steps:
+      - name: Set msvs_version for Windows
+        if: runner.os == 'Windows'
+        run: echo "msvs_version=2022" >> $GITHUB_ENV
       - name: Checkout repository
         uses: actions/checkout@v4.1.1
       - name: Use Node version defined in manifest
