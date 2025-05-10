@@ -1,10 +1,10 @@
 import child_process from "node:child_process";
 import fs from "node:fs";
-import https from "node:https";
 import path from "node:path";
 import process from "node:process";
 import stream from "node:stream";
 
+import axios from "axios";
 import * as semver from "semver";
 import * as tar from "tar";
 
