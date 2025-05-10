@@ -63,5 +63,7 @@ export async function main() {
 
     await decompressHeaders();
 
-    rebuild();
+    if (fs.existsSync(path.resolve('build', 'Release', 'hello.node')) === false) {
+        rebuild();
+    }
 }
