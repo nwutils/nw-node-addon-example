@@ -3,6 +3,7 @@ import fs from "node:fs";
 import https from "node:https";
 import path from "node:path";
 import process from "node:process";
+import stream from "node:stream";
 
 import * as semver from "semver";
 import * as tar from "tar";
@@ -18,28 +19,16 @@ const headersPath = path.resolve(process.cwd(), `nw-headers-v${nwVersion}.tar.gz
 await main();
 
 async function downloadHeaders() {
+
     const writeStream = fs.createWriteStream(headersPath);
 
-    return new Promise((resolve, reject) => {
-        https.get(headersUrl, (res) => {
-
-            let chunks = 0;
-
-            res.on("data", (chunk) => {
-                chunks += chunk;
-            });
-
-            res.on("end", () => {
-                resolve(chunks);
-            });
-
-            res.on("error", (error) => {
-                reject(error);
-            });
-
-            res.pipe(writeStream);
-        });
+    const response = await axios({
+        method: 'get',
+        url: headersUrl,
+        responseType: 'stream'
     });
+
+    await stream.promises.pipeline(response.data, writeStream);
 }
 
 async function decompressHeaders() {
@@ -52,7 +41,7 @@ async function decompressHeaders() {
 }
 
 async function rebuild() {
-    child_process.execFileSync('node-gyp', ['rebuild',  `--target=${nodeManifest.volta.node}`, `--nodedir=${path.resolve('node')}`]);
+    child_process.execFileSync('node-gyp', ['rebuild', `--target=${nodeManifest.volta.node}`, `--nodedir=${path.resolve('node')}`]);
 }
 
 export async function main() {

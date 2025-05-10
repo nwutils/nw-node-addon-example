@@ -4,6 +4,7 @@
     "main": "index.html",
     "private": true,
     "devDependencies": {
+        "axios": "^1.9.0",
         "base-volta-off-of-nwjs": "^1.0.5",
         "node-gyp": "^10.2.0",
         "nw": "^0.93.0",
