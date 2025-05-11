@@ -7,7 +7,7 @@
         "axios": "^1.9.0",
         "base-volta-off-of-nwjs": "^1.0.5",
         "node-gyp": "^11.2.0",
-        "nw": "^0.94.0",
+        "nw": "^0.99.1",
         "selenium-webdriver": "^4.32.0",
         "semver": "^7.7.1",
         "tar": "^7.4.3",
@@ -20,7 +20,7 @@
         "test": "vitest run"
     },
     "volta": {
-        "node": "22.7.0",
+        "node": "23.11.0",
         "npm": "11.3.0"
     }
 }
